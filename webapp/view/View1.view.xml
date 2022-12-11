@@ -1,0 +1,8 @@
+<mvc:View controllerName="devdemo.devdemo.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <Text text="Hello World"></Text>
+        <content />
+    </Page>
+</mvc:View>

@@ -1,0 +1,94 @@
+_schema-version: "3.2"
+ID: devdemo-devdemo
+description: A Fiori application.
+version: 0.0.1
+modules:
+- name: devdemo-devdemo-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: devdemo-devdemo-destination-service
+    parameters:
+      content-target: true
+  - name: devdemo-devdemo-repo-host
+    parameters:
+      service-key:
+        name: devdemo-devdemo-repo-host-key
+  - name: devdemo-devdemo-uaa
+    parameters:
+      service-key:
+        name: devdemo-devdemo-uaa-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: devdemo-devdemo_html_repo_host
+          ServiceInstanceName: devdemo-devdemo-html5-srv
+          ServiceKeyName: devdemo-devdemo-repo-host-key
+          sap.cloud.service: devdemo-devdemo
+        - Authentication: OAuth2UserTokenExchange
+          Name: devdemo-devdemo_uaa
+          ServiceInstanceName: devdemo-devdemo-xsuaa-srv
+          ServiceKeyName: devdemo-devdemo-uaa-key
+          sap.cloud.service: devdemo-devdemo
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: devdemo-devdemo-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: devdemo-devdemo-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - devdemodevdemo.zip
+      name: devdemodevdemo
+      target-path: resources/
+- name: devdemodevdemo
+  type: html5
+  path: .
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: devdemo-devdemo-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: devdemo-devdemo-destination-service
+    service-plan: lite
+- name: devdemo-devdemo-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: devdemo-devdemo-xsuaa-srv
+    service-plan: application
+- name: devdemo-devdemo-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: devdemo-devdemo-html5-srv
+    service-plan: app-host
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
