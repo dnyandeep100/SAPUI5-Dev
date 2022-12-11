@@ -1,3 +1,4 @@
+<<<<<<< Upstream, based on 0b26a0d1af06b8c43aa822a53ec2d95d60ac906b
 <mvc:View controllerName="devdemo.devdemo.controller.View1"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
@@ -6,3 +7,16 @@
         <content />
     </Page>
 </mvc:View>
+=======
+<mvc:View controllerName="devdemodevdemo.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<Text text="Hello World WebIde"/>
+				<content></content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
+>>>>>>> 082c878 Commit from WEBIDE

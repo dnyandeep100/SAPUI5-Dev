@@ -1,3 +1,4 @@
+<<<<<<< Upstream, based on 0b26a0d1af06b8c43aa822a53ec2d95d60ac906b
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,4 +36,40 @@
         data-handle-validation="true"
     ></div>
 </body>
+=======
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">
+
+		<title>devdemo</title>
+
+		<script id="sap-ui-bootstrap"
+			src="../../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-resourceroots='{"devdemodevdemo": ""}'>
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<script>
+			sap.ui.getCore().attachInit(function() {
+				new sap.m.Shell({
+					app: new sap.ui.core.ComponentContainer({
+						height : "100%",
+						name : "devdemodevdemo"
+					})
+				}).placeAt("content");
+			});
+		</script>
+	</head>
+
+	<body class="sapUiBody" id="content">
+	</body>
+
+>>>>>>> 082c878 Commit from WEBIDE
 </html>
