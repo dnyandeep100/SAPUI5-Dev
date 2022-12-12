@@ -3,7 +3,7 @@
 	<App>
 		<pages>
 			<Page title="{i18n>title}">
-				<Text text="Hello World WebIde from personal edition"/>
+				<Text text="Hello World WebIde from personal edition 123"/>
 				<content></content>
 			</Page>
 		</pages>
