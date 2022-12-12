@@ -1,3 +1,4 @@
+<<<<<<< Upstream, based on 0b26a0d1af06b8c43aa822a53ec2d95d60ac906b
 node_modules/
 dist/
 .scp/
@@ -8,3 +9,16 @@ mta-*
 resources
 archive.zip
 .*_mta_build_tmp
+=======
+
+sap-ui-cachebuster-info.json
+extended_runnable_file.html
+.*/extended_runnable_file.html
+mock_preview_sapui5.html
+.*/mock_preview_sapui5.html
+fioriHtmlRunner.html
+.*/fioriHtmlRunner.html
+visual_ext_index.html
+/webapp/visual_ext_index.html
+>>>>>>> 082c878 Commit from WEBIDE
+/.user.project.json
